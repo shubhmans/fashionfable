@@ -16,13 +16,10 @@ const ShopContextProvider = (props) => {
 
     const addToCart = useCallback(
         (itemId) => {
-            console.log(itemId);
-
             setCartItems((prev) => ({
                 ...prev,
                 [itemId]: prev[itemId] + 1,
             }));
-            console.log(cartItems);
         },
         [cartItems]
     );
@@ -34,7 +31,34 @@ const ShopContextProvider = (props) => {
         }));
     };
 
-    let contextVal = { all_product, cartItems, addToCart, removeFromCart };
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+            totalAmount +=
+                cartItems[item] > 0
+                    ? all_product.find((product) => product.id === Number(item))
+                          .new_price * cartItems[item]
+                    : 0;
+        }
+        return totalAmount;
+    };
+
+    const getTotalItemsInCart = () => {
+        let count = 0;
+        for (const item in cartItems) {
+            count += cartItems[item];
+        }
+        return count;
+    };
+
+    let contextVal = {
+        all_product,
+        cartItems,
+        addToCart,
+        removeFromCart,
+        getTotalCartAmount,
+        getTotalItemsInCart,
+    };
 
     return (
         <ShopContext.Provider value={contextVal}>
