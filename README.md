@@ -14,7 +14,7 @@
 
 ## Project Overview
 
-This is a full-stack e-commerce application built using the MERN (MongoDB, Express.js, React.js, Node.js) tech stack. The application allows users to browse products across different categories (Men, Women, Kids), manage their shopping cart, and perform user authentication through login and signup functionalities.
+This is a full-stack e-commerce application built using the MERN (MongoDB, Express.js, React.js, Node.js) tech stack. The application allows users to browse products across different categories (Men, Women, Kids), manage their shopping cart, and perform user authentication through login and signup functionalities. Also, admin can add different products for store from its dashboard.
 
 ## Technologies Used
 
